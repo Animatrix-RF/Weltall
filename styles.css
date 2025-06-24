@@ -1,0 +1,224 @@
+/* styles.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: linear-gradient(to bottom, #000010, #000033);
+    color: white;
+    overflow-x: hidden;
+  }
+
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 1.2em;
+    line-height: 1.5;
+}
+
+   .rakete-wrapper {
+    position: fixed;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+  }
+  
+  .rakete {
+    width: 100px;
+    transition: transform 0.2s ease-out;
+  }
+  
+  #content {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 100px 20px;
+  }
+  
+  footer {
+    margin-top: 100px;
+    padding: 20px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+nav {
+Width: 100%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 30px;
+z-index: 1;
+}
+
+h2 {
+font-size: 18px;
+color: white;
+}
+ul {
+display: flex;
+gap: 35px;
+}
+
+.name {
+font-size: 20px;
+color: white;
+font-weight: 600;
+}
+
+.content-wrapper {
+width: 100%;
+height: 100%;
+display: flex;
+align-items: center;
+}
+
+.planet-info {
+width: 20%;
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+:root {
+      --primary-color: #4f46e5;
+      --primary-color-dark: #3730a3;
+      --text-color-light: #ffffff;
+      --bg-color: #f9fafb;
+      --transition-speed: 0.3s;
+      --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+        /* Navbar container */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--primary-color);
+      color: var(--text-color-light);
+      padding: 0.75rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .navbar .brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      user-select: none;
+      cursor: default;
+    }
+
+    /* Navigation links */
+    .nav-links {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .nav-links a {
+      color: var(--text-color-light);
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+      transition: color var(--transition-speed);
+    }
+
+    .nav-links a::after {
+      content: "";
+      display: block;
+      height: 2px;
+      background-color: var(--text-color-light);
+      width: 0;
+      transition: width var(--transition-speed);
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      border-radius: 2px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus {
+      color: var(--text-color-light);
+    }
+
+    .nav-links a:hover::after, 
+    .nav-links a:focus::after {
+      width: 100%;
+    }
+
+    /* Hamburger menu container */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      cursor: pointer;
+      width: 24px;
+      height: 18px;
+      gap: 4px;
+      user-select: none;
+    }
+
+    .hamburger div {
+      height: 3px;
+      background-color: var(--text-color-light);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        flex-direction: column;
+        background: var(--primary-color-dark);
+        top: 56px;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+        height: calc(100% - 56px);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .nav-links.open {
+        transform: translateX(0);
+      }
+
+      .nav-links a {
+        font-size: 1.1rem;
+        padding: 0.5rem 0;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Hamburger animation on open */
+    .hamburger.open div:nth-child(1) {
+      transform: rotate(45deg) translateY(6px);
+    }
+    .hamburger.open div:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open div:nth-child(3) {
+      transform: rotate(-45deg) translateY(-6px);
+    }
+
+    
+            .star {
+            position: absolute;
+            border-radius: 50%;
+            background: white;
+            animation: twinkle 1.5s infinite alternate;
+        }
