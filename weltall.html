@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entdecken Sie die Planeten unseres Sonnensystems.">
+    <meta name="keywords" content="Sonnensystem, Planeten, Astronomie">
+    <title>Unser Sonnensystem</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Orbitron:wght@500;700&display=swap');
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            background: radial-gradient(ellipse at bottom, #0B0E23 0%, #010003 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .planet-card {
+            transition: all 0.3s ease;
+            background: rgba(30, 34, 61, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .planet-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 245, 255, 0.1);
+        }
+        
+        .title-gradient {
+            background: linear-gradient(to right, #00F5FF, #6A00F4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .planet-image {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        :root {
+            --space-dark: #0B0E23;
+            --neon-blue: #00F5FF;
+            --galaxy-purple: #6A00F4;
+            --star-yellow: #FFE700;
+            --plasma-pink: #FF00A8;
+        }
+        
+        body {
+            font-family: 'Space Mono', monospace;
+            background: radial-gradient(ellipse at bottom, var(--space-dark) 0%, #010003 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        /* Navbar-Stile */
+        nav {
+            position: fixed; /* Fixiert die Navbar oben */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50; /* Stellt sicher, dass die Navbar über anderen Inhalten liegt */
+            background: rgba(0, 0, 0, 0.5); /* Halbdurchsichtiger Hintergrund */
+            backdrop-filter: blur(10px); /* Weichzeichner für den Hintergrund */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Untere Grenze */
+        }
+
+        nav .container {
+            padding: 1rem 1.5rem; /* Innenabstand */
+        }
+
+        nav .text-2xl {
+            font-family: 'Orbitron', sans-serif;
+            color: transparent;
+            background: linear-gradient(to right, #3b82f6, #9333ea);
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        nav a {
+            color: white; /* Textfarbe */
+            transition: color 0.3s ease; /* Übergangseffekt für die Farbe */
+            margin-left: 20px; /* Abstand zwischen den Links */
+        }
+
+        nav a:hover {
+            color: #00F5FF; /* Neon-Blau beim Hover */
+        }
+
+        #button2 a:hover {
+            color: #9333ea;
+
+        }
+
+        /* Hauptinhalt-Stile */
+        #content {
+            padding: 20px; /* Innenabstand für den Inhalt */
+        }
+
+        /* Hero-Sektion-Stile */
+        #home {
+            margin-top: 80px; /* Höhe der Navbar anpassen */
+        }
+
+        /* Schaltflächen-Stile */
+        .neon-btn {
+            position: relative;
+            overflow: hidden;
+            background: transparent;
+            border: 2px solid #00F5FF; /* Neon-Blau */
+            color: #00F5FF; /* Neon-Blau */
+            transition: all 0.3s ease;
+            padding: 0.75rem 2rem;
+            border-radius: 9999px; /* Vollständig abgerundete Ecken */
+            font-weight: bold;
+        }
+
+        .neon-btn:hover {
+            box-shadow: 0 0 15px #00F5FF, 0 0 25px #00F5FF;
+            text-shadow: 0 0 5px white;
+        }
+
+        .neon-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .neon-btn:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold font-orbitron">
+                    PLANETEN-EXPLORER
+                </div>
+                <div class="nav-links">
+                    <a href="index.html" tabindex="0">Startseite</a>
+                    <a href="planet.html" tabindex="0">3D Dimension</a>
+                    <a href="weltall.html" tabindex="0">Planete</a>
+                    <a href="kontakt.html" tabindex="0">Kontakt</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="container mx-auto px-4">
+        <header class="text-center mb-16" id="home">
+            <h1 class="title-gradient text-4xl md:text-6xl font-bold font-orbitron mb-4">Unser Sonnensystem</h1>
+            <p class="text-xl max-w-2xl mx-auto">Die Planeten unserer kosmischen Nachbarschaft</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Merkur -->
+            <div class="planet-card rounded-xl p-6 text-center">
+                <img src="https://portal-cdn.scnat.ch/asset/66c67fb0-3b9f-5f1e-91b6-65fd6d3a5b99/PIA16853mercury_900.jpg?b=a2fb313b-4a4e-53c4-b9c3-24ed8997e5c0&v=a85a44e2-1733-5082-ba16-b9ee26274942_100&s=JNZyBb_hz5zCvZjrWoUlQ6UtqfOtb0TGDimmOG9UcqNHLgLWg2gpkzujNG-61YJj3XpWQWxcqOcuHAU3V0-jWympr6YKp2QNkWuToIcjOwUlsdcBwyxP2zPwoG6cyQDizu_LgArFrVTfnfxHv2ppFzteKf4-KQh3BZXONCP6XpU&t=b1085d3c-fb5f-446e-ae88-ed9d76537838&sc=2" 
+                     alt="Merkur - der kleinste Planet" 
+                     class="planet-image mb-4">
+                <h3 class="text-2xl font-bold mb-2">Merkur</h3>
+                <div class="mb-4">
+                    <p class="text-gray-300">Entfernung: 58 Mio km</p>
+                    <p class="text-gray-300">Durchmesser: 4.880 km</p>
+                </div>
+                <p class="text-gray-300">Der kleinste Planet mit extremen Temperaturschwankungen.</p>
+            </div>
+
+            <!-- Venus -->
+            <div class="planet-card rounded-xl p-6 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/PIA23791-Venus-RealAndEnhancedContrastViews-20200608_%28cropped%29.jpg" 
+                     alt="Venus - dichte Wolkendecke aus Schwefelsäure" 
+                     class="planet-image mb-4">
+                <h3 class="text-2xl font-bold mb-2">Venus</h3>
+                <div class="mb-4">
+                    <p class="text-gray-300">Entfernung: 108 Mio km</p>
+                    <p class="text-gray-300">Durchmesser: 12.104 km</p>
+                </div>
+                <p class="text-gray-300">Dichte Wolkendecke aus Schwefelsäure.</p>
+            </div>
+
+            <!-- Erde -->
+            <div class="planet-card rounded-xl p-6 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Nasa_blue_marble.jpg/330px-Nasa_blue_marble.jpg" 
+                     alt="Erde - unser Zuhause mit flüssigem Wasser" 
+                     class="planet-image mb-4">
+                <h3 class="text-2xl font-bold mb-2">Erde</h3>
+                <div class="mb-4">
+                    <p class="text-gray-300">Entfernung: 150 Mio km</p>
+                    <p class="text-gray-300">Durchmesser: 12.742 km</p>
+                </div>
+                <p class="text-gray-300">Unser Zuhause mit flüssigem Wasser.</p>
+            </div>
+
+            <!-- Mars -->
+            <div class="planet-card rounded-xl p-6 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/OSIRIS_Mars_true_color.jpg/1200px-OSIRIS_Mars_true_color.jpg" 
+                     alt="Mars - der Rote Planet mit Olympus Mons" 
+                     class="planet-image mb-4">
+                <h3 class="text-2xl font-bold mb-2">Mars</h3>
+                <div class="mb-4">
+                    <p class="text-gray-300">Entfernung: 228 Mio km</p>
+                    <p class="text-gray-300">Durchmesser: 6.779 km</p>
+                </div>
+                <p class="text-gray-300">Der "Rote Planet" mit Olympus Mons.</p>
+            </div>
+
+            <!-- Jupiter -->
+            <div class="planet-card rounded-xl p-6 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bb/Jupiter_OPAL_2024_%28cropped%29.png" 
+                     alt="Jupiter - Gasriese mit dem Grossen Roten Fleck" 
+                     class="planet-image mb-4">
+                <h3 class="text-2xl font-bold mb-2">Jupiter</h3>
+                <div class="mb-4">
+                    <p class="text-gray-300">Entfernung: 778 Mio km</p>
+                    <p class="text-gray-300">Durchmesser: 139.820 km</p>
+                </div>
+                <p class="text-gray-300">Gasriese mit dem Grossen Roten Fleck.</p>
+            </div>
+
+            <!-- Saturn -->
+            <div class="planet-card rounded-xl p-6 text-center">
+                <img src="https://www.weltderphysik.de/fileadmin/_processed_/e/0/csm_20220914_Saturn-Monde_NASA_f0499f668d.jpg" 
+                     alt="Saturn - bekannt für seine spektakulären Ringe" 
+                     class="planet-image mb-4">
+                <h3 class="text-2xl font-bold mb-2">Saturn</h3>
+                <div class="mb-4">
+                    <p class="text-gray-300">Entfernung: 1,4 Mrd km</p>
+                    <p class="text-gray-300">Durchmesser: 116.460 km</p>
+                </div>
+                <p class="text-gray-300">Bekannt für seine spektakulären Ringe.</p>
+            </div>
+
+            <!-- Uranus -->
+            <div class="planet-card rounded-xl p-6 text-center">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Uranus_Voyager2_color_calibrated.png" 
+                     alt="Uranus - rotiert auf der Seite" 
+                     class="planet-image mb-4">
+                <h3 class="text-2xl font-bold mb-2">Uranus</h3>
+                <div class="mb-4">
+                    <p class="text-gray-300">Entfernung: 2,9 Mrd km</p>
+                    <p class="text-gray-300">Durchmesser: 50.724 km</p>
+                </div>
+                <p class="text-gray-300">Rotiert auf der Seite.</p>
+            </div>
+
+            <!-- Neptun -->
+            <div class="planet-card rounded-xl p-6 text-center">
+                <img src="https://portal-cdn.scnat.ch/asset/1d5cc6f6-3c42-56c2-9777-cf916aaaa5e9/Neptun.jpg?b=153d55e9-9607-5fba-8ffd-c27223e81987&v=0c10457c-d4b0-5ce6-832b-a4edec2dfc0b_100&s=I5Q0k-K6_PU58cBjNYuBrnlrNvIOv80b0DsSPcJwdGX0i7_HNhD-pTxbV6IUjtyIhFn039zhny8jChlkErQOURyu1RRvzbB8naMCzm_72-vUHqh1z2BSsu2HDQb_w3EVewYaQbb9q4d42AIZNn8LMM0YWOtyB0aMe8QRxNsqQPM&t=b1085d3c-fb5f-446e-ae88-ed9d76537838&sc=2" 
+                     alt="Neptun - der windigste Planet" 
+                     class="planet-image mb-4">
+                <h3 class="text-2xl font-bold mb-2">Neptun</h3>
+                <div class="mb-4">
+                    <p class="text-gray-300">Entfernung: 4,5 Mrd km</p>
+                    <p class="text-gray-300">Durchmesser: 49.244 km</p>
+                </div>
+                <p class="text-gray-300">Der windigste Planet.</p>
+            </div>
+
+            <!-- Pluto -->
+            <div class="planet-card rounded-xl p-6 text-center">
+                <img src="https://image.geo.de/30666316/t/pG/v6/w1440/r1.5/-/hallo-kosmos-pluto---bild.jpg" 
+                     alt="Pluto - eisiger Zwergplanet" 
+                     class="planet-image mb-4">
+                <h3 class="text-2xl font-bold mb-2">Pluto</h3>
+                <div class="mb-4">
+                    <p class="text-gray-300">Entfernung: 5,9 Mrd km</p>
+                    <p class="text-gray-300">Durchmesser: 2.377 km</p>
+                </div>
+                <p class="text-gray-300">Eisiger Zwergplanet.</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

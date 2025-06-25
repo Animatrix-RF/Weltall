@@ -118,12 +118,13 @@
                 <div class="nav-links">
                     <a href="index.html" tabindex="0">Startseite</a>
                     <a href="planet.html" tabindex="0">3D Dimension</a>
-                    <a href="#services" tabindex="0">Planete</a>
+                    <a href="weltall.html" tabindex="0">Planete</a>
                     <a href="kontakt.html" tabindex="0">Kontakt</a>
                 </div>
             </div>
         </div>
     </nav>
+
     <!-- Hero-Sektion -->
 <section id="home" class="min-h-screen flex items-center justify-center relative cosmic-section">
     <div class="container mx-auto px-6 py-20 text-center z-10">
@@ -134,10 +135,12 @@
             Reisen Sie durch die Weiten des Kosmos und entdecken Sie die Wunder unseres Sonnensystems und darüber hinaus.
         </p>
         <div class="animate__animated animate__fadeInUp animate__delay-2s">
+            <a href="planet.html" class="no-underline"></a>
             <button id="button1" class="neon-btn px-8 py-3 rounded-full text-lg font-bold mr-4">
                 Mission starten
             </button>
             <button id="button2" class="neon-btn px-8 py-3 rounded-full text-lg font-bold" style="border-color: var(--plasma-pink); color: var(--plasma-pink);">
+            <a href="weltall.html" class="no-underline"></a>
                 Galerie erkunden
             </button>
         </div>
@@ -176,6 +179,16 @@
             </section>
     </div>
     <script src="script.js"></script>
+    <script>
+        document.getElementById('button1').addEventListener('click', function() {
+            window.location.href = 'planet.html';
+        });
+    </script>
+    <script>
+        document.getElementById('button2').addEventListener('click', function() {
+            window.location.href = 'weltall.html';
+        });
+    </script>
 </body>
 </html>
 

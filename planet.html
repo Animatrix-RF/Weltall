@@ -167,7 +167,7 @@
                 <div class="nav-links">
                     <a href="index.html" tabindex="0">Startseite</a>
                     <a href="planet.html" tabindex="0">3D Dimension</a>
-                    <a href="#services" tabindex="0">Planete</a>
+                    <a href="weltall.html" tabindex="0">Planete</a>
                     <a href="kontakt.html" tabindex="0">Kontakt</a>
                 </div>
             </div>
@@ -276,23 +276,23 @@
       // Planet data [name, size, distance from sun, texture URL, normal map URL, rotation speed, axial tilt degrees]
       // Added fun facts for info display
       const planetsData = [
-        ['Mercury', 4.8, 70, 'https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/mercurymap.jpg', null, 0.0048, 0.034,
-          "Mercury is the closest planet to the Sun and has the shortest orbit year lasting only 88 days."],
+        ['Merkur', 4.8, 70, 'https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/mercurymap.jpg', null, 0.0048, 0.034,
+          "Merkur ist der sonnennächste und zugleich kleinste Planet unseres Sonnensystems."],
         ['Venus', 12.1, 100, 'https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/venusmap.jpg', null, -0.0018, 177.36,
-          "Venus has a thick toxic atmosphere and is the hottest planet due to a strong greenhouse effect."],
-        ['Earth', 12.7, 140, 'https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/earthmap1k.jpg',
+          "Die Venus ist der heisseste Planet im Sonnensystem und ähnlich gross wie die Erde."],
+        ['Erde', 12.7, 140, 'https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/earthmap1k.jpg',
           'https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/earthnormalmap.jpg', 0.005, 23.44,
-          "Earth is the only planet known to support life and has one moon named 'the Moon'."],
+          "Die Erde ist der einzige bekannte Planet, auf dem Leben existiert."],
         ['Mars', 6.8, 180, 'https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/mars_1k_color.jpg', null, 0.0042, 25.19,
-          "Mars is known as the Red Planet, and there's evidence it once had liquid water on its surface."],
+          "Der Mars ist der vierte Planet unseres Sonnensystems und bekannt als der „Rote Planet“."],
         ['Jupiter', 48, 240, 'https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/jupitermap.jpg', null, 0.0084, 3.13,
-          "Jupiter is the largest planet with a giant red storm twice the size of Earth."],
+          "Jupiter ist der grösste Planet im Sonnensystem und besitzt über 90 Monde."],
         ['Saturn', 40, 320, 'https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/saturnmap.jpg', null, 0.007, 26.73,
-          "Saturn is famous for its stunning rings made of ice, rock, and dust particles."],
+          "Saturn ist bekannt für sein auffälliges Ringsystem und ist der zweitgrösste Planet im Sonnensystem."],
         ['Uranus', 17, 370, 'https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/uranusmap.jpg', null, -0.006, 97.77,
-          "Uranus rotates on its side and has a faint blue-green color due to methane in its atmosphere."],
+          "Uranus ist ein eisiger Gasplanet, der auf der Seite liegend um die Sonne kreist."],
         ['Neptune', 16, 420, 'https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/neptunemap.jpg', null, 0.005, 28.32,
-          "Neptune is the farthest planet in our solar system with supersonic winds and a violent climate."]
+          "Neptun ist der äusserste Planet des Sonnensystems und bekannt für seine starken Stürme."]
       ];
 
       // Create planet orbits
@@ -342,10 +342,10 @@
       const moonMesh = new THREE.Mesh(moonGeometry, moonMaterial);
 
       // Find Earth planet
-      const earth = planetObjects.find(p => p.userData.name === 'Earth');
+      const erde = planetObjects.find(p => p.userData.name === 'Erde');
       // Moon pivot orbit around Earth
       const moonPivot = new THREE.Object3D();
-      earth.add(moonPivot);
+      erde.add(moonPivot);
       moonPivot.position.set(0,0,0);
       moonMesh.position.set(20,0,0);
       moonPivot.add(moonMesh);
@@ -443,7 +443,7 @@
         for (let i = 0; i < numStars; i++) {
             const star = document.createElement('div');
             star.className = 'star';
-            const size = Math.random() * 3; // Größe der Sterne
+            const size = Math.random() * 3; // Grösse der Sterne
             star.style.width = `${size}px`;
             star.style.height = `${size}px`;
             star.style.top = `${Math.random() * 100}vh`;
